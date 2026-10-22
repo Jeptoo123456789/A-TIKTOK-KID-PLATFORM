@@ -1,0 +1,6 @@
+{
+  "name": "KinVid - Safe Kids Short Video Platform",
+  "description": "A safe, educational, and engaging short-form video platform built for children with comprehensive parental controls, age-appropriate content curation, and safety-first moderation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

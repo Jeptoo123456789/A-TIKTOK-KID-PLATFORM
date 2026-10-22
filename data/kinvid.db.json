@@ -1,0 +1,383 @@
+{
+  "version": 2,
+  "adultAccounts": [
+    {
+      "id": "acc_admin_01",
+      "email": "admin@kinvid.local",
+      "passwordHash": "4018001fa79c088ee5831a41eacda3b8:a8895bde01402773debede8848cb5167e79ccc408e7c5a8f604803007884d6f73d6c4a2a05ef48f0d618ed72a4d0e8defe22e5d77296002080fd64a5ca4f862e",
+      "fullName": "KinVid Platform Administrator",
+      "role": "admin",
+      "isVerified": true,
+      "consentAcceptedAt": "2026-10-22T07:52:30.156Z",
+      "jurisdiction": "Global / KE",
+      "createdAt": "2026-10-22T07:52:30.156Z",
+      "updatedAt": "2026-10-22T07:52:30.156Z"
+    },
+    {
+      "id": "acc_mod_01",
+      "email": "moderator@kinvid.local",
+      "passwordHash": "eeaae11a69a8957184d2d739b17b415c:dedc7d9047ebd7b3eb4b34496a80829f5065390a5e67f89b26f3337e83ab0a866790be283f1e53e4bc383d3e251937a4c31eac9a120159fa376a5006b51746f2",
+      "fullName": "Safety Reviewer Sarah",
+      "role": "moderator",
+      "isVerified": true,
+      "consentAcceptedAt": "2026-10-22T07:52:30.156Z",
+      "jurisdiction": "KE",
+      "createdAt": "2026-10-22T07:52:30.156Z",
+      "updatedAt": "2026-10-22T07:52:30.156Z"
+    },
+    {
+      "id": "acc_parent_01",
+      "email": "parent@kinvid.local",
+      "passwordHash": "d50b9abc78499f5418bef7cd462d3d4e:d54f9c6d67d69a1e3d99ecaa4129cd1c180ee6e2b3e151655b97e5fdd89eedce9c4ae2f63abb44e66dc27e4c9c80a653fc7f2e83b90139890bf66cd56afbab68",
+      "fullName": "Jane Doe (Parent)",
+      "role": "parent",
+      "isVerified": true,
+      "consentAcceptedAt": "2026-10-22T07:52:30.156Z",
+      "jurisdiction": "KE",
+      "createdAt": "2026-10-22T07:52:30.156Z",
+      "updatedAt": "2026-10-22T07:52:30.156Z"
+    },
+    {
+      "id": "acc_creator_01",
+      "email": "creator@kinvid.local",
+      "passwordHash": "90c64c8ec6f97df0a8bf2cc90cb3b7c5:b37fb8db13442ededd8c3e7e3ec8c4e9d152b55a918e7c4ee7103ee9a8534e1759195438148479b61cc23db814d41801cce2c456b112532aa0821da967384188",
+      "fullName": "Prof. Sparkle (Science Teacher)",
+      "role": "creator",
+      "isVerified": true,
+      "consentAcceptedAt": "2026-10-22T07:52:30.156Z",
+      "jurisdiction": "KE",
+      "createdAt": "2026-10-22T07:52:30.156Z",
+      "updatedAt": "2026-10-22T07:52:30.156Z"
+    }
+  ],
+  "parentalConsents": [
+    {
+      "id": "consent_01",
+      "parentAccountId": "acc_parent_01",
+      "consentVersion": "v2026.1-DPA-COPPA",
+      "verificationMethod": "email_verification",
+      "verifiedTimestamp": "2026-10-22T07:52:30.156Z",
+      "ipAddressHash": "12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0",
+      "jurisdiction": "KE",
+      "termsAccepted": true
+    }
+  ],
+  "childProfiles": [
+    {
+      "id": "child_leo_01",
+      "parentAccountId": "acc_parent_01",
+      "displayName": "Leo Astronaut",
+      "avatarIcon": "🚀",
+      "birthYear": 2018,
+      "age": 8,
+      "maxAgeSuitability": 9,
+      "preferredCategories": [
+        "cat_science",
+        "cat_nature",
+        "cat_art"
+      ],
+      "createdAt": "2026-10-22T07:52:30.156Z",
+      "updatedAt": "2026-10-22T07:52:30.156Z"
+    },
+    {
+      "id": "child_maya_02",
+      "parentAccountId": "acc_parent_01",
+      "displayName": "Maya Painter",
+      "avatarIcon": "🎨",
+      "birthYear": 2020,
+      "age": 6,
+      "maxAgeSuitability": 7,
+      "preferredCategories": [
+        "cat_art",
+        "cat_story",
+        "cat_music"
+      ],
+      "createdAt": "2026-10-22T07:52:30.156Z",
+      "updatedAt": "2026-10-22T07:52:30.156Z"
+    }
+  ],
+  "parentalSettings": [
+    {
+      "id": "settings_leo_01",
+      "childProfileId": "child_leo_01",
+      "dailyScreenTimeMinutes": 45,
+      "bedtimeStart": "20:30",
+      "bedtimeEnd": "07:00",
+      "weekendExtraMinutes": 30,
+      "allowedCategories": [],
+      "blockedVideoIds": [],
+      "videoCreationEnabled": true,
+      "socialReactionsEnabled": true,
+      "curatedModeOnly": false,
+      "personalizedRecommendationsEnabled": true,
+      "updatedAt": "2026-10-22T07:52:30.156Z"
+    },
+    {
+      "id": "settings_maya_02",
+      "childProfileId": "child_maya_02",
+      "dailyScreenTimeMinutes": 30,
+      "bedtimeStart": "19:45",
+      "bedtimeEnd": "07:30",
+      "weekendExtraMinutes": 15,
+      "allowedCategories": [
+        "cat_art",
+        "cat_story",
+        "cat_music"
+      ],
+      "blockedVideoIds": [],
+      "videoCreationEnabled": false,
+      "socialReactionsEnabled": true,
+      "curatedModeOnly": true,
+      "personalizedRecommendationsEnabled": false,
+      "updatedAt": "2026-10-22T07:52:30.156Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat_science",
+      "slug": "science-space",
+      "name": "Science & Space",
+      "description": "Fun experiments, astronomy, physics, and wonders of the universe!",
+      "icon": "Rocket",
+      "displayOrder": 1,
+      "isActive": true,
+      "minAge": 4,
+      "maxAge": 14
+    },
+    {
+      "id": "cat_nature",
+      "slug": "nature-animals",
+      "name": "Nature & Animals",
+      "description": "Amazing wildlife, oceans, rainforests, and animal rescue stories.",
+      "icon": "PawPrint",
+      "displayOrder": 2,
+      "isActive": true,
+      "minAge": 3,
+      "maxAge": 14
+    },
+    {
+      "id": "cat_math",
+      "slug": "math-logic",
+      "name": "Math & Logic",
+      "description": "Puzzles, numbers, shapes, geometry games, and clever tricks.",
+      "icon": "Calculator",
+      "displayOrder": 3,
+      "isActive": true,
+      "minAge": 5,
+      "maxAge": 13
+    },
+    {
+      "id": "cat_art",
+      "slug": "art-creativity",
+      "name": "Art & Drawing",
+      "description": "Step-by-step drawing, DIY origami, clay crafts, and painting.",
+      "icon": "Palette",
+      "displayOrder": 4,
+      "isActive": true,
+      "minAge": 4,
+      "maxAge": 14
+    },
+    {
+      "id": "cat_story",
+      "slug": "reading-storytelling",
+      "name": "Storytime & Books",
+      "description": "Animated folktales, inspiring heroes, and bedtime read-alouds.",
+      "icon": "BookOpen",
+      "displayOrder": 5,
+      "isActive": true,
+      "minAge": 3,
+      "maxAge": 12
+    },
+    {
+      "id": "cat_music",
+      "slug": "music-dance",
+      "name": "Music & Movement",
+      "description": "Catchy rhythms, instruments, body coordination, and kids dances.",
+      "icon": "Music",
+      "displayOrder": 6,
+      "isActive": true,
+      "minAge": 3,
+      "maxAge": 14
+    },
+    {
+      "id": "cat_comedy",
+      "slug": "safe-comedy",
+      "name": "Fun & Clean Laughs",
+      "description": "Silly dad jokes, riddles, tongue twisters, and cheerful bloopers.",
+      "icon": "Sparkles",
+      "displayOrder": 7,
+      "isActive": true,
+      "minAge": 4,
+      "maxAge": 14
+    }
+  ],
+  "videos": [
+    {
+      "id": "vid_science_01",
+      "title": "How Rockets Break Earth Gravity! 🚀",
+      "description": "Discover how powerful thrusters and escape velocity push rockets past Earth atmospheric drag into orbit!",
+      "categoryId": "cat_science",
+      "creatorId": "acc_creator_01",
+      "creatorName": "Prof. Sparkle",
+      "uploaderType": "creator",
+      "ageSuitability": 6,
+      "durationSeconds": 28,
+      "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1517976487507-5b3b4a45050f?auto=format&fit=crop&w=600&q=80",
+      "status": "APPROVED",
+      "viewCount": 1420,
+      "likeCount": 312,
+      "favoriteCount": 89,
+      "isFeatured": true,
+      "createdAt": "2026-10-22T07:52:30.156Z",
+      "updatedAt": "2026-10-22T07:52:30.156Z",
+      "publishedAt": "2026-10-22T07:52:30.156Z"
+    },
+    {
+      "id": "vid_nature_02",
+      "title": "Baby Elephants Learning to Splash! 🐘",
+      "description": "Watch this sweet 3-month-old calf learn how to use its trunk to spray cool water in the savannah heat!",
+      "categoryId": "cat_nature",
+      "creatorId": "acc_creator_01",
+      "creatorName": "Prof. Sparkle",
+      "uploaderType": "creator",
+      "ageSuitability": 4,
+      "durationSeconds": 15,
+      "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=600&q=80",
+      "status": "APPROVED",
+      "viewCount": 2890,
+      "likeCount": 540,
+      "favoriteCount": 165,
+      "isFeatured": true,
+      "createdAt": "2026-10-22T07:52:30.156Z",
+      "updatedAt": "2026-10-22T07:52:30.156Z",
+      "publishedAt": "2026-10-22T07:52:30.156Z"
+    },
+    {
+      "id": "vid_math_03",
+      "title": "The Secret Fibonacci Spiral in Nature 🌻",
+      "description": "Look closely at sunflower seeds and pinecones! Count the curves to find the magical Fibonacci sequence.",
+      "categoryId": "cat_math",
+      "creatorId": "acc_creator_01",
+      "creatorName": "Prof. Sparkle",
+      "uploaderType": "creator",
+      "ageSuitability": 7,
+      "durationSeconds": 22,
+      "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80",
+      "status": "APPROVED",
+      "viewCount": 980,
+      "likeCount": 195,
+      "favoriteCount": 42,
+      "isFeatured": false,
+      "createdAt": "2026-10-22T07:52:30.156Z",
+      "updatedAt": "2026-10-22T07:52:30.156Z",
+      "publishedAt": "2026-10-22T07:52:30.156Z"
+    },
+    {
+      "id": "vid_art_04",
+      "title": "Easy 4-Step Cartoon Chameleon Drawing! 🎨",
+      "description": "Grab your green and yellow markers! In just four simple curves, we sketch a friendly branch-hugging chameleon.",
+      "categoryId": "cat_art",
+      "creatorId": "acc_creator_01",
+      "creatorName": "Prof. Sparkle",
+      "uploaderType": "creator",
+      "ageSuitability": 5,
+      "durationSeconds": 30,
+      "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyBlazes.mp4",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80",
+      "status": "APPROVED",
+      "viewCount": 1670,
+      "likeCount": 420,
+      "favoriteCount": 110,
+      "isFeatured": true,
+      "createdAt": "2026-10-22T07:52:30.156Z",
+      "updatedAt": "2026-10-22T07:52:30.156Z",
+      "publishedAt": "2026-10-22T07:52:30.156Z"
+    },
+    {
+      "id": "vid_comedy_05",
+      "title": "Why Did the Dinosaur Cross the Road? 🦖",
+      "description": "Clean, cheerful jokes to share with your family at breakfast! Can you guess the dinosaur punchline before the timer ends?",
+      "categoryId": "cat_comedy",
+      "creatorId": "acc_creator_01",
+      "creatorName": "Prof. Sparkle",
+      "uploaderType": "creator",
+      "ageSuitability": 4,
+      "durationSeconds": 18,
+      "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80",
+      "status": "APPROVED",
+      "viewCount": 3410,
+      "likeCount": 880,
+      "favoriteCount": 230,
+      "isFeatured": false,
+      "createdAt": "2026-10-22T07:52:30.156Z",
+      "updatedAt": "2026-10-22T07:52:30.156Z",
+      "publishedAt": "2026-10-22T07:52:30.156Z"
+    },
+    {
+      "id": "vid_pending_06",
+      "title": "Building a Cardboard Solar Oven (Review Needed)",
+      "description": "Testing if tin foil and black paper can melt a marshmallow using sunlight.",
+      "categoryId": "cat_science",
+      "creatorId": "acc_creator_01",
+      "creatorName": "Prof. Sparkle",
+      "uploaderType": "creator",
+      "ageSuitability": 8,
+      "durationSeconds": 25,
+      "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+      "status": "PENDING_MODERATION",
+      "viewCount": 0,
+      "likeCount": 0,
+      "favoriteCount": 0,
+      "isFeatured": false,
+      "createdAt": "2026-10-22T07:52:30.156Z",
+      "updatedAt": "2026-10-22T07:52:30.156Z"
+    }
+  ],
+  "videoStorageRefs": [],
+  "processingJobs": [],
+  "reactions": [],
+  "favorites": [],
+  "screenTimeUsage": [
+    {
+      "id": "usage_leo_today",
+      "childProfileId": "child_leo_01",
+      "dateString": "2026-10-22",
+      "activeSeconds": 420,
+      "sessionsCount": 1,
+      "lastActiveTimestamp": "2026-10-22T07:52:30.156Z"
+    }
+  ],
+  "contentReports": [
+    {
+      "id": "report_demo_01",
+      "videoId": "vid_comedy_05",
+      "reporterId": "acc_parent_01",
+      "reporterRole": "parent",
+      "reason": "other_policy_violation",
+      "details": "Checking the moderator report flow. Video is clean and hilarious!",
+      "status": "OPEN",
+      "createdAt": "2026-10-22T07:52:30.156Z"
+    }
+  ],
+  "moderationDecisions": [],
+  "auditLogs": [
+    {
+      "id": "audit_01",
+      "actorId": "system",
+      "actorRole": "system",
+      "action": "PLATFORM_INITIALIZATION",
+      "entityType": "platform",
+      "entityId": "kinvid_core",
+      "metadata": {
+        "initialSeedVideos": 6,
+        "version": 2
+      },
+      "timestamp": "2026-10-22T07:52:30.156Z"
+    }
+  ]
+}

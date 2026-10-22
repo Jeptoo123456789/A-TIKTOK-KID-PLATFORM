@@ -1,0 +1,1243 @@
+# PROJECT: BUILD A COMPLETE, CHILD-FRIENDLY SHORT-VIDEO SOCIAL PLATFORM
+
+## 1. YOUR ROLE
+
+Act as a senior software architect, full-stack software engineer, UI/UX designer, database engineer, cybersecurity specialist, video-streaming engineer, quality assurance engineer, and child-online-safety specialist.
+
+Your task is to develop a complete, responsive, interactive, secure, and maintainable short-video platform inspired by the vertical video experience of TikTok but designed specifically for children.
+
+The application should provide a safe environment where children can watch educational and entertaining videos, explore approved content, react to videos, save favorites, and create videos when permitted by their parents or guardians.
+
+Parents must have meaningful control over child profiles, viewing time, content restrictions, video uploads, and optional social features.
+
+Authorized creators must be able to submit content. Moderators must be able to review videos and reports. Administrators must be able to manage platform categories, users, permissions, and safety settings.
+
+This must become a genuine full-stack application with a connected frontend, backend, database, and video-storage system.
+
+Do not produce only a design, a static website, a prototype made entirely from hard-coded data, or a collection of nonfunctional buttons.
+
+Every feature described as complete must actually work, enforce the appropriate permissions, persist data where necessary, and provide clear feedback.
+
+Use "TikTok Kids" only as a temporary development name. Create configurable branding so the final product can have its own original name, logo, colors, and identity. Do not copy TikTok's proprietary logo, assets, or exact visual design.
+
+## 2. FIRST ACTION: INSPECT MY EXISTING PROJECT
+
+Before writing or modifying code:
+
+1. Inspect the existing repository and its folder structure.
+2. Read the existing README, dependency files, configuration files, and relevant source code.
+3. Identify the frontend and backend technologies already in use.
+4. Identify existing functionality that works and must be preserved.
+5. Identify missing functionality, dependencies, configuration, and tests.
+6. Determine whether the project already has a database or authentication system.
+7. Identify potential security issues and configuration problems.
+8. Prepare a prioritized implementation plan.
+
+Do not delete or replace my existing project unnecessarily.
+
+If a compatible technology stack already exists, preserve it where practical. Explain any major proposed change before making it.
+
+If you cannot access the repository, explain precisely what access or files are missing. Never pretend to have inspected files you cannot access.
+
+After inspection, begin implementing the first milestone instead of stopping at the plan.
+
+## 3. TECHNOLOGY STACK
+
+Use this stack unless the existing repository requires a compatible alternative.
+
+### Frontend
+
+* React.
+* TypeScript.
+* Vite.
+* Tailwind CSS or organized, maintainable CSS.
+* React Router.
+* Fetch API or Axios for API requests.
+* A suitable accessible video-player implementation.
+* Reusable components and layouts.
+* Form validation.
+* Responsive design for mobile, tablet, and desktop.
+
+### Backend
+
+* Python.
+* FastAPI.
+* Pydantic.
+* SQLAlchemy.
+* Alembic database migrations.
+* REST APIs documented using OpenAPI.
+* Background processing for video-processing tasks.
+* Secure authentication and role-based authorization.
+
+### Database
+
+* PostgreSQL for production.
+* SQLite only when appropriate for a lightweight local demonstration.
+* Database migrations for schema changes.
+* Proper indexes, foreign keys, constraints, and transactions.
+
+### Video processing and storage
+
+* FFmpeg for media processing.
+* Private object storage compatible with S3 APIs or an appropriate alternative.
+* Background jobs for transcoding and thumbnail generation.
+* Secure, time-limited access to authorized video files.
+* Configurable storage providers.
+
+### Testing
+
+* Pytest for backend tests.
+* Vitest for frontend tests.
+* React Testing Library for component tests.
+* Playwright for browser-based end-to-end tests.
+
+### Development
+
+* Git and GitHub.
+* Visual Studio Code compatibility.
+* Environment variables.
+* A safe `.env.example` file.
+* Docker Compose where practical.
+* A comprehensive README.
+* Automated code-quality and dependency checks where practical.
+
+Do not expose secrets, database passwords, private storage credentials, or privileged tokens in frontend code or GitHub.
+
+## 4. DESIGN A PROFESSIONAL, CHILD-FRIENDLY INTERFACE
+
+Create an attractive, modern, colorful, and easy-to-use interface.
+
+The design should feel welcoming and polished without being visually overwhelming or manipulative.
+
+Use:
+
+* A consistent color palette.
+* Rounded cards and accessible controls.
+* Readable typography.
+* Clear icons with text labels where appropriate.
+* Smooth but restrained animations.
+* Large touch targets.
+* Responsive layouts.
+* Friendly loading and error messages.
+* Useful empty states.
+* Visible accessibility controls.
+* Consistent spacing and visual hierarchy.
+
+Create separate experiences for:
+
+1. Children.
+2. Parents or guardians.
+3. Approved content creators.
+4. Moderators.
+5. Administrators.
+
+The child interface should prioritize watching approved content and exploring educational categories.
+
+The parent interface should prioritize control, transparency, and account security.
+
+The moderator and administrator interfaces should prioritize efficient, auditable safety operations.
+
+Do not create fake notifications, misleading buttons, hidden safety settings, deceptive interfaces, or engagement mechanisms designed to keep children watching for as long as possible.
+
+## 5. USER ROLES AND AUTHORIZATION
+
+Implement server-enforced role-based access control.
+
+### Parent or guardian
+
+Parents should be able to:
+
+* Register and log in.
+* Verify their account where appropriate.
+* Complete the applicable parental-consent process.
+* Create and manage child profiles.
+* Configure content restrictions.
+* Set viewing schedules and daily screen-time limits.
+* Enable or disable permitted social features.
+* Enable or disable video creation.
+* Review child-created videos awaiting approval.
+* Review appropriate activity summaries.
+* Block videos and categories.
+* Manage account security.
+* Request personal-data export or deletion where applicable.
+* Review consent and account-security records.
+
+### Child
+
+Children should be able to:
+
+* Enter their parent-managed profile.
+* Watch approved videos.
+* Scroll vertically through the feed.
+* Browse approved categories.
+* Search permitted content.
+* Pause and resume videos.
+* Adjust volume.
+* Read captions.
+* Like videos when permitted.
+* Save favorite videos.
+* Participate in permitted educational activities.
+* Record or upload videos if the parent has enabled that functionality.
+* Save drafts.
+* Submit videos for required approval.
+* See the status of submitted videos.
+* Report inappropriate content.
+
+Children must not be able to change parental restrictions, access parent-only settings, access administrator functions, or publish unapproved videos.
+
+### Approved content creator
+
+Creators should be able to:
+
+* Manage their creator profiles.
+* Upload videos.
+* Add titles, descriptions, captions, and categories.
+* Submit videos for moderation.
+* View approval or rejection decisions.
+* Request a review of moderation decisions where appropriate.
+
+Creator privileges must not automatically grant administrator access.
+
+### Moderator
+
+Moderators should be able to:
+
+* Review the moderation queue.
+* Examine authorized videos.
+* Review reports.
+* Approve or reject content.
+* Record reasons for decisions.
+* Remove content where authorized.
+* Escalate serious safety concerns.
+* View relevant moderation history.
+
+### Administrator
+
+Administrators should be able to:
+
+* Manage permitted account types and roles.
+* Manage content categories.
+* Manage featured videos.
+* Review reports and moderation statistics.
+* Suspend or restore accounts according to policy.
+* Manage platform settings.
+* Review audit logs.
+* Configure moderator permissions.
+
+Apply the principle of least privilege.
+
+Enforce every sensitive permission on the backend. Hiding a button in the frontend is not an authorization mechanism.
+
+## 6. AUTHENTICATION AND CHILD PROFILES
+
+Implement a secure authentication system with:
+
+* Parent registration.
+* Login and logout.
+* Secure password hashing.
+* Account verification where appropriate.
+* Password recovery.
+* Session expiration and revocation.
+* Authentication rate limiting.
+* Appropriate protection against brute-force attacks.
+* Secure cookie settings if cookie-based sessions are used.
+* CSRF protection where applicable.
+* Stronger authentication for privileged users.
+* Secure account deletion procedures.
+
+Children must be enrolled through the parent or guardian workflow rather than unrestricted independent registration.
+
+Use pseudonymous child display names and collect only information necessary for the application's functions.
+
+Implement a suitable parental-consent and adult-verification workflow based on the intended jurisdiction and applicable law.
+
+Do not treat a checkbox alone as proof of verifiable parental consent when stronger verification is required.
+
+For child profiles, implement:
+
+* Profile creation.
+* Profile editing.
+* Profile icons.
+* Age-appropriate content settings.
+* Preferred categories.
+* Viewing limits.
+* Viewing schedules.
+* Upload permissions.
+* Optional social-feature permissions.
+* Blocked content.
+* Profile deletion.
+
+Require appropriate adult authentication before sensitive parent-controlled settings can be changed.
+
+Verify the parent-child relationship on the backend whenever protected child information is accessed.
+
+Do not trust a profile ID supplied by the frontend as proof of ownership.
+
+## 7. MAIN VIDEO FEED
+
+Build a fully functional vertical short-video feed.
+
+Features must include:
+
+* Full-screen or near-full-screen video playback.
+* Vertical navigation between videos.
+* Automatic playback of the visible video, subject to accessibility settings.
+* Pause and play controls.
+* Mute and unmute.
+* Video progress.
+* Loading indicators.
+* Retry controls.
+* Captions and subtitles.
+* Video titles and descriptions.
+* Category labels.
+* Appropriate creator attribution.
+* Like and reaction controls.
+* Favorite controls.
+* Report controls.
+* Next-video and previous-video navigation.
+* Responsive mobile, tablet, and desktop layouts.
+
+Technical requirements:
+
+* Play only videos authorized for the current profile.
+* Pause videos when they leave the visible area.
+* Avoid simultaneous playback of multiple videos.
+* Support slow or unreliable connections.
+* Avoid loading the entire video library into memory.
+* Handle missing videos and playback failures gracefully.
+* Use pagination or cursor-based feed loading.
+* Load thumbnails efficiently.
+* Respect parental settings and content restrictions.
+
+Connect the feed to the actual backend and database.
+
+Demonstration videos must be stored and retrieved through the application's video model and approved-content workflow, not permanently hard-coded into the interface.
+
+## 8. CONTENT CATEGORIES
+
+Create configurable categories such as:
+
+* Science.
+* Mathematics.
+* Technology.
+* Reading and storytelling.
+* Nature and animals.
+* Music and dance.
+* Drawing and creativity.
+* Sports and physical activity.
+* Educational entertainment.
+* Age-appropriate comedy.
+
+Authorized administrators must be able to create, edit, disable, and reorder categories.
+
+Each video should have:
+
+* A unique identifier.
+* A title.
+* A description.
+* A category.
+* A creator reference.
+* An age-suitability classification.
+* A moderation status.
+* A publication status.
+* Creation and modification timestamps.
+* A storage reference.
+* Caption information where available.
+
+Parents must be able to restrict categories.
+
+The feed, search, and recommendations must apply those restrictions consistently.
+
+Implement a curated mode that displays administrator-approved videos without requiring open public uploads or unrestricted social features.
+
+## 9. VIDEO RECORDING AND UPLOADING
+
+Build a complete video-submission workflow.
+
+Where supported, users should be able to:
+
+* Record video using a permitted device camera.
+* Select a video from their device.
+* Preview the video.
+* Trim the beginning and end.
+* Enter a title and description.
+* Select an approved category.
+* Add captions or subtitles.
+* Choose permitted music or sound effects.
+* Save a draft.
+* Upload a video.
+* View upload progress.
+* Retry a failed upload.
+* View processing status.
+* Submit the video for required approval.
+* Receive an understandable approval or rejection status.
+
+Support a fallback upload workflow if browser recording or editing is unavailable.
+
+Validate uploads on the server.
+
+Check actual file contents rather than trusting file extensions or browser-provided MIME types.
+
+Enforce configurable:
+
+* Maximum file size.
+* Maximum duration.
+* Supported formats.
+* Video dimensions.
+* Upload frequency.
+* Storage quotas.
+* Processing resource limits.
+
+Use private storage and secure upload authorization.
+
+Unreviewed videos must not have permanent public URLs or appear in normal feeds, search results, or recommendations.
+
+For child-created content, implement the required parental approval and moderation workflow before publication.
+
+Do not implement unrestricted live streaming or direct messaging in the initial release.
+
+## 10. VIDEO PROCESSING PIPELINE
+
+Create a reliable background-processing workflow.
+
+The workflow should:
+
+1. Validate the upload request.
+2. Confirm the user's permissions.
+3. Validate the media file.
+4. Store the original file securely.
+5. Create a processing job.
+6. Generate thumbnails.
+7. Transcode media into appropriate playback formats where required.
+8. Validate processing output.
+9. Apply available content-screening checks.
+10. Update processing status.
+11. Send the video through required approval stages.
+12. Publish only after every required approval succeeds.
+
+Use FFmpeg safely, with controlled arguments, timeouts, and resource limits.
+
+Never construct executable commands from untrusted filenames or metadata.
+
+Handle corrupted files, interrupted jobs, storage failures, and retries.
+
+Make processing jobs idempotent so that retries do not create duplicate videos or publication events.
+
+Automated content screening must not be treated as infallible or as a replacement for required human review.
+
+## 11. LIKES, REACTIONS, AND FAVORITES
+
+Implement real backend functionality for:
+
+* Liking a video.
+* Removing a like.
+* Predefined reactions where enabled.
+* Displaying reaction counts.
+* Saving a video to favorites.
+* Removing a favorite.
+* Listing saved videos.
+
+Prevent duplicate reactions and favorites through appropriate database constraints and backend logic.
+
+Persist changes in the database.
+
+Update the interface after successful API responses.
+
+Handle loading states, failures, and repeated requests.
+
+Do not expose child engagement data publicly by default.
+
+Parents must be able to disable optional social features.
+
+## 12. COMMENTS AND SOCIAL FEATURES
+
+Treat comments and other public interactions as optional features that are disabled by default for child accounts.
+
+Prioritize the first release around:
+
+* Watching approved videos.
+* Likes or predefined reactions.
+* Favorites.
+* Educational activities.
+* Content reporting.
+
+If comments are implemented later, add appropriate consent controls, moderation, abuse reporting, privacy protection, rate limiting, and parental controls.
+
+Do not implement anonymous chat, unrestricted private messaging, disappearing messages intended to avoid moderation, or unrestricted communication between children and strangers.
+
+## 13. SEARCH AND SAFE DISCOVERY
+
+Implement functional search by:
+
+* Video title.
+* Approved descriptions.
+* Educational topic.
+* Category.
+
+Provide:
+
+* Category browsing.
+* Featured videos.
+* Recently approved videos.
+* Pagination.
+* Helpful empty states.
+* Appropriate search limits.
+
+Search results must exclude:
+
+* Unapproved content.
+* Removed or blocked videos.
+* Restricted categories.
+* Videos outside the permitted age suitability.
+* Content unavailable to the current profile.
+
+Do not expose unapproved videos through direct identifiers or search endpoints.
+
+Implement transparent recommendations based initially on approved categories, explicit preferences, age suitability, moderation status, and recently approved content.
+
+Allow parents to disable personalized recommendations.
+
+Provide category-based browsing that does not rely on behavioral profiling.
+
+Do not use invasive tracking, sensitive profiling, manipulative engagement mechanisms, or watch duration as the sole measure of content quality.
+
+## 14. PARENT DASHBOARD
+
+Build a real parent dashboard connected to the backend.
+
+### Profile controls
+
+* Create, edit, and delete child profiles.
+* Manage profile permissions.
+* Configure age-appropriate content.
+* Review child-upload permissions.
+
+### Screen-time controls
+
+* Set daily viewing limits.
+* Configure permitted viewing schedules.
+* Configure bedtime restrictions.
+* Show time remaining where appropriate.
+* Explain restrictions clearly to children.
+
+Enforce viewing limits reliably rather than relying solely on a frontend countdown.
+
+Define how usage is measured, including active playback, paused videos, inactive tabs, and session interruptions.
+
+Handle server and client time consistently.
+
+### Content controls
+
+* Enable or disable categories.
+* Block specific videos.
+* Set age-suitability restrictions.
+* Enable curated mode.
+* Review child-created videos.
+* Approve or reject videos when required.
+
+### Social controls
+
+* Enable or disable reactions.
+* Enable or disable comments if implemented.
+* Restrict sharing.
+* Disable optional social features.
+
+### Activity and privacy
+
+* View privacy-conscious activity summaries.
+* Review upload decisions.
+* View relevant safety notifications.
+* Manage consent records.
+* Review account security.
+* Request applicable data export or deletion.
+
+Sensitive parent settings must require appropriate adult authentication.
+
+Never expose parent-only information to child profiles.
+
+## 15. MODERATION AND CONTENT REPORTING
+
+Implement an explicit video state machine.
+
+Possible states:
+
+* DRAFT.
+* UPLOADED.
+* PROCESSING.
+* PENDING_PARENT_APPROVAL.
+* PENDING_MODERATION.
+* APPROVED.
+* REJECTED.
+* BLOCKED.
+* REMOVED.
+* PROCESSING_FAILED.
+
+Define and enforce valid state transitions in backend services.
+
+Implement:
+
+* Automated screening where appropriate.
+* A human moderation queue.
+* Moderator decisions.
+* Rejection reasons.
+* Content reports.
+* Report prioritization.
+* Escalation of serious safety concerns.
+* Repeat-violation handling.
+* Appeals where appropriate.
+* Moderation audit logs.
+* Removal of previously published content.
+* Appropriate notifications.
+
+Provide clear reporting reasons for:
+
+* Inappropriate content.
+* Harassment.
+* Dangerous challenges.
+* Impersonation.
+* Privacy violations.
+* Suspected exploitation or abuse.
+* Other policy violations.
+
+Record the report status and moderation outcome.
+
+Protect reporter identities from unnecessary disclosure.
+
+Develop an incident-response process for urgent child-safety concerns.
+
+Never publish content merely because an automated screening service did not flag it.
+
+## 16. ADMINISTRATOR AND MODERATOR DASHBOARDS
+
+Build secure dashboards backed by real database queries.
+
+### Administrator dashboard
+
+Display appropriate operational statistics, including:
+
+* Parent account count.
+* Child profile count.
+* Approved video count.
+* Pending moderation count.
+* Open reports.
+* Video-processing failures.
+* Moderation trends.
+* Relevant service-health information.
+
+### Content management
+
+Authorized administrators should be able to:
+
+* Manage categories.
+* Manage featured videos.
+* Review published content.
+* Remove videos.
+* Review reports.
+* Suspend accounts according to policy.
+* Review moderation history.
+* Configure permitted platform settings.
+
+### Moderator dashboard
+
+Moderators should be able to:
+
+* View the moderation queue.
+* Preview authorized content.
+* Review screening results.
+* Approve or reject videos.
+* Record reasons.
+* Escalate serious cases.
+* Review and resolve reports.
+
+Enforce permissions for every administrative API.
+
+Record important administrative and moderation actions in an appropriately protected audit log.
+
+Do not use hard-coded statistics in production dashboards.
+
+## 17. DATABASE DESIGN
+
+Create a normalized database with appropriate relationships, constraints, indexes, and migrations.
+
+Include entities for:
+
+* Adult accounts.
+* Child profiles.
+* Roles and permissions.
+* Parental consent.
+* Categories.
+* Videos.
+* Video storage references.
+* Processing jobs.
+* Reactions.
+* Favorites.
+* Comments if enabled.
+* Parental settings.
+* Screen-time usage.
+* Reports.
+* Moderation decisions.
+* Notifications.
+* Content restrictions.
+* Account deletion requests.
+* Audit logs.
+
+Use appropriate foreign keys and unique constraints.
+
+Use UTC for stored timestamps and display dates in the appropriate local time zone.
+
+Store only necessary personal information.
+
+Never store plaintext passwords or unnecessary precise location information.
+
+Provide:
+
+* Alembic migrations.
+* Safe demonstration seed data.
+* Database setup instructions.
+* Backup and recovery documentation.
+* Appropriate data-retention and deletion procedures.
+
+## 18. BACKEND API
+
+Implement versioned REST APIs using FastAPI.
+
+Organize endpoints by feature.
+
+Provide endpoints for:
+
+### Authentication
+
+* Parent registration.
+* Login.
+* Logout.
+* Session renewal where applicable.
+* Password recovery.
+* Password reset.
+
+### Child profiles
+
+* Create a profile.
+* List authorized profiles.
+* View a profile.
+* Update a profile.
+* Delete a profile.
+
+### Videos
+
+* Retrieve the approved feed.
+* Retrieve an authorized video.
+* Request a secure upload.
+* Submit a video.
+* Check processing status.
+* React to a video.
+* Remove a reaction.
+* Add or remove favorites.
+* Retrieve favorites.
+* Search approved videos.
+
+### Parental controls
+
+* Retrieve child settings.
+* Update permitted settings.
+* Configure screen-time limits.
+* Review appropriate activity.
+* Approve or reject child-created videos.
+
+### Reports
+
+* Submit a report.
+* Retrieve authorized report status.
+* Review and resolve reports.
+
+### Moderation
+
+* Retrieve the moderation queue.
+* Submit moderation decisions.
+* Review reported content.
+* Escalate safety concerns.
+
+### Administration
+
+* Retrieve dashboard statistics.
+* Manage authorized users.
+* Manage categories.
+* Manage featured content.
+* Review moderation records.
+
+Use correct HTTP methods, request validation, pagination, consistent error responses, and appropriate status codes.
+
+Document the APIs through OpenAPI.
+
+Never trust a user ID, role, child ID, moderation status, or parent ID supplied by the frontend without verifying it on the server.
+
+## 19. PRIVACY AND CHILD DATA PROTECTION
+
+Design privacy and child safety into the application from the beginning.
+
+Evaluate applicable requirements, including:
+
+* Kenya's Data Protection Act, 2019.
+* Applicable Kenyan requirements concerning children's personal data.
+* Requirements in other jurisdictions where the platform will operate.
+* Applicable app-store rules.
+* Appropriate parental consent.
+* Data minimization.
+* Purpose limitation.
+* Access controls.
+* Retention limits.
+* Deletion procedures.
+* Security incident handling.
+* Understandable privacy notices.
+* Third-party service agreements.
+
+Do not claim legal compliance merely because a consent checkbox or privacy policy exists.
+
+Before a public release, obtain appropriate legal and child-safety review.
+
+Avoid third-party advertising and unnecessary analytics in the initial release.
+
+Do not collect a child's full legal name, precise location, school, contact details, or other sensitive information without a documented and lawful necessity.
+
+Implement suitable access, correction, export, and deletion workflows where applicable.
+
+## 20. SECURITY
+
+Apply security controls appropriate to a child-focused platform.
+
+Include:
+
+* HTTPS in production.
+* Secure password hashing.
+* Server-side authorization.
+* Input validation.
+* SQL injection protection.
+* Cross-site scripting protection.
+* CSRF protection where applicable.
+* Authentication and upload rate limits.
+* Secure file validation.
+* Private object storage.
+* Safe media processing.
+* Secret management.
+* Dependency vulnerability checks.
+* Session revocation.
+* Secure account recovery.
+* Restricted database access.
+* Protected backups.
+* Security event logging.
+* Appropriate incident response.
+
+Protect against insecure direct object references and attempts to access another parent's or child's data.
+
+Do not return stack traces, secret values, or internal implementation details to users.
+
+Do not expose privileged environment variables in frontend builds.
+
+Use secure defaults and document any security limitations that remain.
+
+## 21. ACCESSIBILITY AND RESPONSIVE DESIGN
+
+The platform must work on common mobile devices, tablets, and desktop browsers.
+
+Implement:
+
+* Accessible form labels.
+* Keyboard navigation.
+* Screen-reader-friendly controls.
+* Appropriate color contrast.
+* Captions and subtitles.
+* Readable text.
+* Large touch targets.
+* Clear error messages.
+* Loading indicators.
+* Confirmation messages.
+* Reduced-motion support where appropriate.
+
+Test responsive layouts at multiple viewport sizes.
+
+Provide distinct, consistent interfaces for each user role.
+
+## 22. PERFORMANCE AND RELIABILITY
+
+Implement:
+
+* Paginated feed queries.
+* Database indexes.
+* Efficient database access.
+* Lazy loading.
+* Thumbnail generation.
+* Appropriate video compression.
+* Background processing.
+* Request timeouts.
+* Upload progress.
+* Retry handling.
+* Caching where appropriate.
+* Health-check endpoints.
+* Structured logs.
+* Graceful error handling.
+
+Avoid loading the entire video library into memory.
+
+Use secure video delivery and configurable storage.
+
+Ensure the application remains usable on slower internet connections.
+
+## 23. TESTING AND QUALITY ASSURANCE
+
+Write automated tests for important functionality.
+
+### Backend tests
+
+Test:
+
+* Registration and authentication.
+* Invalid login attempts.
+* Authorization.
+* Parent-child ownership.
+* Profile creation and deletion.
+* Video upload validation.
+* Video-processing status.
+* Publication restrictions.
+* Likes and favorites.
+* Search restrictions.
+* Parental controls.
+* Screen-time enforcement.
+* Content reporting.
+* Moderation decisions.
+* Account deletion.
+* Unauthorized access attempts.
+
+### Frontend tests
+
+Test:
+
+* Navigation.
+* Form validation.
+* Video playback controls.
+* Feed scrolling.
+* Likes and favorites.
+* Search.
+* Parent settings.
+* Loading states.
+* Error states.
+* Responsive behavior.
+
+### End-to-end tests
+
+Verify these complete scenarios:
+
+SCENARIO A: PARENT SETUP
+
+1. Register a parent account.
+2. Complete the configured verification and consent steps.
+3. Create a child profile.
+4. Configure restrictions.
+5. Enter the child experience.
+
+SCENARIO B: WATCHING VIDEOS
+
+1. Open the feed.
+2. Play an approved video.
+3. Scroll to another video.
+4. Pause and resume playback.
+5. Like a video.
+6. Save it to favorites.
+7. Reload the application and verify that the saved data persists.
+
+SCENARIO C: VIDEO SUBMISSION
+
+1. Select a video.
+2. Validate and upload it.
+3. Process the video.
+4. Submit it for approval.
+5. Approve or reject it through the authorized workflow.
+6. Confirm that unapproved content is inaccessible through the normal feed and search.
+
+SCENARIO D: PARENTAL CONTROLS
+
+1. Configure a viewing restriction.
+2. Attempt to exceed the restriction.
+3. Verify that it is enforced.
+4. Attempt to modify the restriction from a child profile.
+5. Confirm that the unauthorized change is rejected.
+
+SCENARIO E: CONTENT REPORTING
+
+1. Report a video.
+2. Confirm that the report appears in the moderation queue.
+3. Resolve the report.
+4. Verify that the decision is recorded.
+5. Confirm that any required restriction is applied.
+
+SCENARIO F: AUTHORIZATION
+
+1. Attempt to access another parent's child profile.
+2. Attempt to access an unapproved video.
+3. Attempt to access administrator endpoints as a child.
+4. Verify that unauthorized requests are rejected.
+
+Use isolated test data. Do not use real children's personal information in test fixtures.
+
+Never claim tests passed unless they were actually executed.
+
+## 24. PROJECT STRUCTURE
+
+Maintain a clear separation of concerns.
+
+Use an appropriate structure similar to:
+
+project-root/
+frontend/
+src/
+components/
+pages/
+layouts/
+hooks/
+services/
+contexts/
+types/
+utils/
+styles/
+tests/
+package.json
+backend/
+app/
+api/
+core/
+models/
+schemas/
+services/
+repositories/
+middleware/
+security/
+workers/
+main.py
+migrations/
+tests/
+requirements.txt
+alembic.ini
+infrastructure/
+docker/
+deployment/
+documentation/
+requirements.md
+architecture.md
+database-design.md
+api-documentation.md
+security.md
+testing.md
+scripts/
+seed_database.py
+.env.example
+.gitignore
+docker-compose.yml
+README.md
+
+Adapt the structure to the existing repository when appropriate.
+
+Do not move or delete existing files unnecessarily.
+
+## 25. SETUP AND DOCUMENTATION
+
+Write a complete README explaining:
+
+* Project purpose.
+* Main features.
+* Technology stack.
+* Prerequisites.
+* Installation.
+* Environment configuration.
+* Database setup.
+* Migrations.
+* Seed data.
+* Backend startup.
+* Frontend startup.
+* Video-storage configuration.
+* Running tests.
+* API documentation.
+* Common troubleshooting steps.
+* Development limitations.
+* Production deployment considerations.
+
+Provide safe example configuration without real credentials.
+
+Make local development possible without requiring paid third-party services wherever practical.
+
+If a service requires an external account, explain that requirement and provide an appropriate local development alternative.
+
+Clearly distinguish demonstration settings from production settings.
+
+## 26. IMPLEMENTATION MILESTONES
+
+Build the project incrementally. Do not generate the entire application as one unreviewed code dump.
+
+### MILESTONE 1: FOUNDATION
+
+* Inspect the repository.
+* Preserve working functionality.
+* Establish the application structure.
+* Configure frontend and backend.
+* Configure environment variables.
+* Connect the database.
+* Add migrations.
+* Add health checks.
+* Add basic error handling.
+* Create the README.
+* Verify that the application starts.
+
+### MILESTONE 2: AUTHENTICATION AND PROFILES
+
+* Implement parent registration and login.
+* Implement secure sessions.
+* Implement child profiles.
+* Implement role-based authorization.
+* Add database migrations.
+* Add automated tests.
+
+### MILESTONE 3: VIDEO FEED
+
+* Implement categories.
+* Add safe demonstration videos.
+* Build vertical playback.
+* Add feed navigation and playback controls.
+* Connect the frontend to real APIs.
+* Implement likes and favorites.
+
+### MILESTONE 4: VIDEO UPLOADS
+
+* Implement secure uploads.
+* Configure storage.
+* Integrate FFmpeg.
+* Add background processing.
+* Add progress tracking.
+* Implement draft and submission states.
+
+### MILESTONE 5: PARENTAL CONTROLS
+
+* Implement content restrictions.
+* Add screen-time controls.
+* Add viewing schedules.
+* Implement upload permissions.
+* Add parental approval.
+* Enforce restrictions on the backend.
+
+### MILESTONE 6: MODERATION AND REPORTING
+
+* Implement the moderation queue.
+* Add report submission.
+* Build moderator interfaces.
+* Build administrator interfaces.
+* Enforce publication-state transitions.
+* Add moderation tests and audit logs.
+
+### MILESTONE 7: SEARCH AND DISCOVERY
+
+* Implement search.
+* Add category browsing.
+* Implement safe recommendations.
+* Add pagination and filters.
+
+### MILESTONE 8: QUALITY AND DEPLOYMENT
+
+* Run the full test suite.
+* Fix critical defects.
+* Review authorization.
+* Review accessibility.
+* Review privacy controls.
+* Review child-safety workflows.
+* Complete documentation.
+* Prepare deployment configuration.
+
+After each milestone, report:
+
+1. What was implemented.
+2. Files created or modified.
+3. Database changes.
+4. Tests executed and actual results.
+5. Commands needed to run the application.
+6. Known limitations.
+7. Remaining tasks.
+8. Whether the milestone is complete.
+
+Do not proceed to the next milestone until the current milestone is implemented and verified, unless I explicitly ask you to continue.
+
+## 27. STRICT DEVELOPMENT RULES
+
+Follow these rules throughout development:
+
+1. Inspect existing code before modifying it.
+2. Preserve working features.
+3. Do not overwrite unrelated code.
+4. Use real APIs instead of hard-coded production responses.
+5. Persist required data in the database.
+6. Make every implemented button perform its intended action.
+7. Validate inputs on both frontend and backend.
+8. Enforce permissions on the backend.
+9. Keep secrets out of source code.
+10. Add database migrations.
+11. Write automated tests.
+12. Handle errors visibly and safely.
+13. Document configuration.
+14. Avoid unnecessary dependencies.
+15. Use modular, readable code.
+16. Do not mark incomplete functionality as complete.
+17. Do not invent test results.
+18. Keep unapproved videos inaccessible to ordinary users.
+19. Do not enable unrestricted child-to-stranger messaging.
+20. Do not collect unnecessary sensitive information from children.
+21. Do not use production credentials in sample configuration.
+22. Do not claim legal compliance without appropriate verification.
+23. Document external services and paid dependencies.
+24. Never deploy publicly without the required safety, security, privacy, and legal reviews.
+25. If something is ambiguous, choose a safe default, document the assumption, and continue unless the ambiguity prevents correct implementation.
+
+## 28. DEFINITION OF DONE
+
+The first controlled demonstration is ready only when:
+
+* The frontend starts successfully.
+* The backend starts successfully.
+* The database connection works.
+* Parent authentication works.
+* Child profiles work.
+* Role-based permissions are enforced.
+* The feed retrieves actual approved video records.
+* Video playback works.
+* Likes and favorites persist.
+* Search respects content restrictions.
+* Uploads are validated.
+* Video-processing status is tracked.
+* Unapproved videos cannot be accessed through normal viewing endpoints.
+* Parental restrictions are enforced.
+* Moderators can review content reports.
+* Administrators can manage authorized platform features.
+* Critical automated tests pass.
+* Setup documentation is complete.
+* No known critical security issue remains unresolved.
+
+A feature is not complete merely because its interface exists.
+
+Public release requires additional legal, privacy, security, child-safety, operational, and app-store review.
+
+## 29. YOUR IMMEDIATE TASK
+
+Start now.
+
+First inspect my existing repository and explain its current state.
+
+Then:
+
+1. Identify the current architecture.
+2. List the working features that should be preserved.
+3. Identify missing dependencies and configuration.
+4. Present a concise, prioritized implementation plan.
+5. Implement MILESTONE 1 in the actual project files.
+6. Run the available checks and tests.
+7. Fix problems caused by your changes.
+8. Update the README with exact setup and startup commands.
+9. Report what works and what remains incomplete.
+
+Do not stop after writing a plan. Make actual changes when repository access and development tools are available.
+
+Do not claim to have modified files, run commands, or passed tests unless you have actually done so.
+
+After completing MILESTONE 1, summarize the result and wait for my instruction before starting MILESTONE 2.
